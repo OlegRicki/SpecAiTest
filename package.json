@@ -1,0 +1,17 @@
+{
+  "name": "specaitest",
+  "version": "1.0.0",
+  "scripts": {
+    "pmi:normalize": "uv run python tools/normalize_pmi.py",
+    "parse-document": "sh -c 'set -a && [ -f .env ] && . ./.env; set +a && exec uv run python tools/parse_document.py \"$@\"' --",
+    "pipeline": "sh -c 'set -a && [ -f .env ] && . ./.env; set +a && exec uv run python tools/run_pipeline.py \"$@\"' --",
+    "test:py": "sh -c 'set -a && [ -f .env ] && . ./.env; set +a && exec uv run pytest \"$@\"' --",
+    "allure:serve": "allure serve allure-results",
+    "allure:generate": "allure generate allure-results -o allure-report --clean"
+  },
+  "devDependencies": {
+    "@earendil-works/pi-coding-agent": "^1.5.2"
+  },
+  "private": true,
+  "description": "Generate and run browser tests from a local specification"
+}
